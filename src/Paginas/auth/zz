@@ -1,0 +1,110 @@
+
+  
+    const [nuevaInformacion, setNuevaInformacion] = useState({
+        nombreP: '',
+    nombre: '',
+    apellido: '',
+    correo: '',
+    numero: '',
+    direccion: ''
+      });
+      const [compras, setCompras] = useState([]);
+      const [CompraSeleccionada, setCompraSeleccionada] = useState(null);
+       
+
+  const [error, setError] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
+  const [mensajeExito, setMensajeExito] = useState("");
+  const [errorP, setErrorP] = useState('');
+  const [successMessageP, setSuccessMessageP] = useState('');
+
+
+  useEffect(() => {
+    const fetchCompra = async () => {
+      try {
+        const response = await axios.get("http://localhost:8888/api/v1/front/compras");
+        setCompras(response.data.results);
+      } catch (error) {
+        console.error("Error al obtener pedidos:", error);
+      }
+    };
+
+    fetchCompra();
+  }, []);
+
+
+  const handleEditarCompra = (compra) => {
+    setCompraSeleccionada(compra);
+    setNuevaInformacion({
+      nombreP: compra.nombreP,
+      nombre: compra.nombre,
+      apellido: compra.apellido,
+      correo: compra.correo,
+      numero: compra.numero,
+      direccion: compra.direccion
+    });
+  };
+
+
+  const handleChangeNuevaInformacion = (e) => {
+    setNuevaInformacion({
+      ...nuevaInformacion,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const delCompra = async (compraId) => {
+    const confirmacion = window.confirm("¿Estás seguro de que deseas eliminar esta cita?");
+    if (confirmacion) {
+      try {
+        await axios.delete(`http://localhost:8888/api/v1/front/compras/${compraId}`);
+        const updateCompra = compras.filter((compra) => compra._id !== compraId);
+        setCompras(updateCompra);
+        setSuccessMessageP('pedido eliminado con exito');
+    setError('');
+      } catch (errorP) {
+        console.errorP('Error para eliminar:', errorP);
+      }
+    }
+  };
+
+
+
+
+
+  const handleActualizarCompra = async () => {
+    try {
+      await axios.put(`http://localhost:8888/api/v1/front/compras/${CompraSeleccionada._id}`, nuevaInformacion);
+      const updateCompra = compras.map((compra) => {
+        if (compra._id === CompraSeleccionada._id) {
+          return {
+            ...compra,
+            ...nuevaInformacion
+          };
+        }
+        return compra;
+      });
+
+      setCompras(updateCompra);
+  
+      setMensajeExito("Producto actualizado con éxito.");
+    } catch (error) {
+      console.error("Error al actualizar el producto:", error);
+    }
+  };
+
+ 
+
+
+  const onChange = (e) => {
+    setCompras({
+      ...compras,
+      [e.target.name]: e.target.value
+    });
+  };
+
+
+const onSubmit = (e) => {
+    e.preventDefault();
+    
+  };

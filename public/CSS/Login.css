@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+
+.body{
+    font-family: 'Roboto', 'sans-serif';
+    background-color: #d6dee0;
+
+    background-image:  radial-gradient(#291919 0.7000000000000001px, transparent 0.7000000000000001px), radial-gradient(#e7e7e7 0.7000000000000001px, #fcefef 0.7000000000000001px);
+    background-size: 28px 28px;
+    background-position: 0 0,14px 14px;
+    display:flex;
+    min-height: 100vh;
+    position: relative;
+}
+
+.container{
+    padding-top: 12%;
+    padding-bottom: 20%;
+}
+
+
+.form-l{
+    background-color: #ebebeb;
+    border: 1px solid rgb(37, 24, 24);
+    margin: auto;
+    width: 90%;
+    max-width: 400px;
+    padding: 4.5em 3em;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px -5px rgb(0, 0, 0 / 30%);
+    
+}
+
+.form-er{
+    background-color: #ebebeb;
+    border: 1px solid rgb(37, 24, 24);
+    margin: auto;
+    width: 90%;
+    max-width: 400px;
+    padding: 2.5em 2em;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px -5px rgb(0, 0, 0 / 30%);
+    height: 400px;
+    
+}
+
+.form-title-l{
+    font-size: 3rem;
+    margin-bottom: .5em;
+    display: flex;
+    color: #1344e6;
+    place-content: center;
+}
+
+.form-title-er{
+    font-size: 2rem;
+    color: #272020;
+    margin-bottom: .1em;
+    place-content: center;
+
+}
+
+.form-texto-l{
+    font-weight: 300;
+    display: flex;
+    place-content: center;
+}
+
+.form-container-l{
+    margin-top: 3em;
+    display: grid;
+    gap: 2.5em;
+    
+}
+
+.form-group-l{
+    position: relative;
+    --color: rgb(46, 46, 46);
+}
+
+.form-input-l{
+    width: 100%;
+    background: none;
+    position: relative;
+    color: #868686;
+    font-size: 1rem;
+    padding: .6em .3em;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--color);
+    font-family: 'Roboto', 'sans-serif';
+}
+
+.form-input-l:focus,
+.form-input-l:not(:placeholder-shown){
+    color: #3f3f3f;
+}
+
+
+.form-input-l:focus + .form-label-l,
+.form-input-l:not(:placeholder-shown) + .form-label-l{
+    transform: translateY(-12px) scale(.7);
+    transform-origin: left top;
+    color: #1344e6;
+}
+
+.form-label-l{
+    color: var(--color);
+    position:absolute;
+    top: 0;
+    left: 5px;
+    transform: translateY(10px);
+    transition: transform .5s, color .3s;
+}
+
+.form-submit-l{
+    background-color: rgb(3, 104, 255);
+    color: aliceblue;
+    border-color: rgb(4, 40, 114);
+    border-width: 5px;
+    font-family: 'Roboto', 'sans-serif';
+    font-weight: 300;
+    font-size: 16px;
+    padding: .8em 0;
+    width: 180px;
+    border: none;
+    border-radius: .3em;
+    display: flex;
+    place-content: center;
+    border-bottom: 2px;
+    border: 2px solid rgb(3, 19, 109);
+}
+
+.form-submit-l:hover{
+    color: rgb(48, 48, 48);
+    background-color: rgb(255, 230, 7);
+    border-color: rgb(17, 17, 17);
+    border-width: 2px;
+}
+
+.button-l{
+    background-color: rgb(3, 104, 255);
+    color: aliceblue;
+    border-color: rgb(4, 40, 114);
+    border-width: 5px;
+    font-family: 'Roboto', 'sans-serif';
+    font-weight: 300;
+    font-size: 16px;
+    margin: auto;
+    width: 90%;
+    padding: .8em 0;
+    width: 180px;
+    border: none;
+    cursor: pointer;
+    border-radius: .3em;
+    margin-top: 15px;
+    border: 2px solid rgb(3, 19, 109);
+}
+
+.button-l:hover {
+    color: rgb(48, 48, 48);
+    background-color: rgb(255, 230, 7);
+    border-color: rgb(17, 17, 17);
+    border-width: 2px;
+}
+
+.button-l:hover a{
+    color: rgb(48, 48, 48);
+}
+
+.button-l a{
+    color: aliceblue;
+}
+
+.form-line-l{
+    position:relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #1344e6;
+    transform: scale(0);
+    transform: left bottom;
+    transition: transform .4s;
+}
+
+.form-input-l:focus ~ .form-line-l,
+.form-input-l:not(:placeholder-shown) + .form-line-l{
+    transform: scale(1);
+}
+
+@media (max-width:425px){
+
+    .form-title-l{
+        font-size: 1.8rem;
+    }
+
+}
+
+
+.footer {
+    position: absolute;
+    background-color: #0a4397;
+    color: #d6dee0;
+    font-size: 18px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 2rem;
+    text-align: center;
+  }
